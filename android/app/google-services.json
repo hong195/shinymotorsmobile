@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "530526691274",
+    "firebase_url": "https://stylemixthemes-1530164740994.firebaseio.com",
+    "project_id": "stylemixthemes-1530164740994",
+    "storage_bucket": "stylemixthemes-1530164740994.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530526691274:android:6d833e0753ef8fd5cdb933",
+        "android_client_info": {
+          "package_name": "com.stylemixthemes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "530526691274-od8q9ckcvupasn1r213aui1e0n5uke4j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLPeMARSbZwOg0CCxfsXg2SADAu80ST-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "530526691274-od8q9ckcvupasn1r213aui1e0n5uke4j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
