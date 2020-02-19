@@ -8,7 +8,8 @@ import {
     View,
     TouchableOpacity,
     Image,
-    Linking
+    Linking,
+    Modal,
 } from 'react-native';
 
 import AsyncStorage from '@react-native-community/async-storage';
@@ -28,6 +29,8 @@ import MapView from 'react-native-maps';
 import {Marker, MarkerAnimated, AnimatedRegion} from 'react-native-maps';
 import Communications from 'react-native-communications';
 import AdvertisingComponent from '../components/AdvertisingComponent';
+
+import ImageViewer from 'react-native-image-zoom-viewer';
 
 import _ from 'lodash';
 
@@ -65,10 +68,14 @@ export default class Details extends React.Component {
             iconsName: {0: 'chevron-down', 1: 'chevron-down', 2: 'chevron-down', 3: 'chevron-down'},
             isOpen: false,
             adPosition: 'bottom',
-
+            isShowZoomCarImg : true,
+            nCurImgIndex : 0,
         };
 
         vm = this;
+        this._renderCarouselItem = this._renderCarouselItem.bind(this);
+        this._onPressImage = this._onPressImage.bind(this);
+        this._onClickImg = this._onClickImg.bind(this);
     }
 
     static navigationOptions = ({navigation, navigationOptions}) => {
@@ -295,11 +302,23 @@ export default class Details extends React.Component {
         return section;
     };
 
+    _onPressImage(index){
+        console.log("onpress image index = " + index);
+        this.setState({nCurImgIndex : index});
+        this.setState({isShowZoomCarImg : true});
+        // this.setState({nCurImgIndex:index, isShowZoomCarImg:true});
+    }
     _renderCarouselItem({item, index}) {
+        let _this = this;
         return (
-            <View style={styles.slide}>
+            <TouchableOpacity 
+                style={styles.slide}   
+                onPress={() => {
+                    this._onPressImage(index);
+                }}
+            >
                 <Image style={styles.img} source={{uri: item.url}}/>
-            </View>
+            </TouchableOpacity>
         );
     }
 
@@ -315,6 +334,10 @@ export default class Details extends React.Component {
         }
     }
 
+    _onClickImg(){
+        // this.setState(isShowZoomCarImg, false);
+        this.setState({isShowZoomCarImg : false})
+    }
 
     render() {
         if (this.state.isLoading) {
@@ -510,7 +533,7 @@ export default class Details extends React.Component {
                         <View style={styles.sliderWrap}>
                             {
                                 listing.gallery.length > 1 ?
-                                    <Lightbox activeProps={activeProps} renderContent={renderCarousel}>
+                                    <Lightbox activeProps={activeProps} enableZoom={true} renderContent={renderCarousel}>
                                         <Carousel
                                             ref={(c) => {
                                                 this._carousel = c;
@@ -527,6 +550,19 @@ export default class Details extends React.Component {
                                     :
                                     <Image style={styles.img} source={{uri: listing.imgUrl}}/>
                             }
+                          
+                            <Modal 
+                                visible={this.state.isShowZoomCarImg} 
+                                transparent={false}
+                                animationType="slide"
+                            >
+                                <ImageViewer
+                                    imageUrls={listing.gallery}
+                                    index={this.state.nCurImgIndex}
+                                    onClick={() => this._onClickImg()}
+                                />
+                            </Modal>
+
                             <View style={[styles.priceWrap, {backgroundColor: _this.state.mainColor}]}><Text
                                 style={styles.price}>{listing.price}</Text></View>
                             <View style={styles.imsCountWrap}>

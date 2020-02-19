@@ -40,6 +40,7 @@ EStyleSheet.build({$rem: entireScreenWidth / 380});
 
 let _this;
 let translateObj = null;
+console.disableYellowBox = true;
 
 class App extends React.Component {
 
