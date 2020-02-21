@@ -3,7 +3,7 @@ package com.stylemixthemes;
 import android.content.Context;
 
 import com.facebook.react.ReactApplication;
-import com.dylanvann.fastimage.FastImageViewPackage;
+// import com.dylanvann.fastimage.FastImageViewPackage;
 
 import androidx.multidex.MultiDex;
 import androidx.multidex.MultiDexApplication;
@@ -47,7 +47,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
               new MainReactPackage(),
-            new FastImageViewPackage(),
+            // new FastImageViewPackage(),
               new RNFirebasePackage(),
               new RNFirebaseAuthPackage(),
               new RNFirebaseAdMobPackage(),

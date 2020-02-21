@@ -56,10 +56,8 @@ class App extends React.Component {
     }
 
     async componentWillMount() {
-
         const channel = new firebase.notifications.Android.Channel('test-channel', 'Test Channel', firebase.notifications.Android.Importance.Max).setDescription('My apps test channel');
         firebase.notifications().android.createChannel(channel);
-
         try {
             let deviceId = await AsyncStorage.getItem('device_id');
             const fcmToken = await firebase.messaging().getToken();
@@ -118,7 +116,6 @@ class App extends React.Component {
         }
 
         let acv = 1;
-
         try {
             acv = await AsyncStorage.getItem('acv');
             let translations = await AsyncStorage.getItem('translations');
