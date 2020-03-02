@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Shiny View Motors</string>
+    <string name="default_notification_channel_id">Shiny View Motors</string>
+</resources>

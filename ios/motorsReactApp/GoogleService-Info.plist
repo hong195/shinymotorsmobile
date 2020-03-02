@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1026288201667-mbhf99fsgksj9d6u8ofv6s7h67jgt14i.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1026288201667-mbhf99fsgksj9d6u8ofv6s7h67jgt14i</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCCdlChx1-bfS0UIVm_AyFP1GLFISkMKrI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1026288201667</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.shinyviewmotors</string>
+	<key>PROJECT_ID</key>
+	<string>shiny-view-motors</string>
+	<key>STORAGE_BUCKET</key>
+	<string>shiny-view-motors.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1026288201667:ios:95297afcee4e6aee0d9776</string>
+	<key>DATABASE_URL</key>
+	<string>https://shiny-view-motors.firebaseio.com</string>
+</dict>
+</plist>
