@@ -53,7 +53,8 @@ class App extends React.Component {
         this.state = {
             numOfListings: 0,
             redirect: false,
-            refresh: false
+            refresh: false,
+            resizeMode : 'contain'
         }
     }
 
@@ -231,7 +232,7 @@ class App extends React.Component {
     render() {
         if(translateObj == null) {
             return (<ImageBackground source={require('./src/assets/img/launch_bg.jpg')}
-                                     style={{width: '100%', height: '100%'}} resizeMode='stretch'>
+                                     style={{backgroundColor:'black',  width: '100%', height: '100%'}} resizeMode={this.state.resizeMode}>
                 <View style={styles.container}>
                     {/* <View style={styles.imgWrap}>
                         <Image style={{width: '100%', height: 'auto', resizeMode: 'contain'}}
@@ -253,7 +254,7 @@ class App extends React.Component {
 
             return (
                 <ImageBackground source={require('./src/assets/img/launch_bg.jpg')}
-                                 style={{width: '100%', height: '100%'}} resizeMode='stretch'>
+                                 style={{width: '100%', height: '100%', backgroundColor:'black', }} resizeMode={this.state.resizeMode}>
                     <View style={styles.container}>
                         <View style={styles.imgWrap}>
                             {/* <Image style={{width: '100%', height: 'auto', resizeMode: 'contain'}}

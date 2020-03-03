@@ -116,13 +116,17 @@ export default class AddACarDefaultChoose extends React.Component {
                 filterData: _this.props.navigation.state.params.filterData,
                 btnText: _this.props.navigation.state.params.title,
             });
+
+            if (_this.state.filterType === "year"){
+                let reverseFilterData = _this.state.filterData.reverse();
+                this.setState({filterData : reverseFilterData});
+            }
         }
     }
 
     componentDidMount() {
         checked = {};
     }
-
 
     render() {
         return (

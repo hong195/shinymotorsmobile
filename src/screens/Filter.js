@@ -130,7 +130,6 @@ export default class Filter extends React.Component {
             if(typeof(responceJSON.search_radius) != 'undefined') {
                 _this.findCoordinates();
             }
-
             _this.setState({
                 isLoading: false,
                 refreshing: false,
@@ -211,7 +210,8 @@ export default class Filter extends React.Component {
         }
 
         let price = (typeof(_this.state.filterData.price) != 'undefined') ? _this.state.filterData.price : null;
-        let year = (typeof(_this.state.filterData.year) != 'undefined') ? _this.state.filterData.year : null;
+        let year = (typeof(_this.state.filterData.year) != 'undefined') ? _this.state.filterData.year.reverse() : null;
+        // let year = (typeof(_this.state.filterData.year) != 'undefined') ? _this.state.filterData.year: null;
         //let locationFilter = (typeof(_this.state.filterData.search_radius) != 'undefined') ? true : null;
 
         const placeholderFrom = {

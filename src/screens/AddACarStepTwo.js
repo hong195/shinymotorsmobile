@@ -380,6 +380,9 @@ export default class AddACarStepTwo extends React.Component {
             return (<View style={{flex: 1, alignItems: 'center', paddingTop: 100}}><ActivityIndicator/></View>)
         }
 
+        console.log("_this.state.stepTwo");
+        console.log(_this.state.stepTwo);
+        
         return (
             <KeyboardAvoidingView behavior={"padding"} style={{flex: 1, width: '100%'}}>
                 <ScrollView>
