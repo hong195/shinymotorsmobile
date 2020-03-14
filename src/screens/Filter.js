@@ -130,7 +130,6 @@ export default class Filter extends React.Component {
             if(typeof(responceJSON.search_radius) != 'undefined') {
                 _this.findCoordinates();
             }
-
             _this.setState({
                 isLoading: false,
                 refreshing: false,
@@ -211,8 +210,7 @@ export default class Filter extends React.Component {
         }
 
         let price = (typeof(_this.state.filterData.price) != 'undefined') ? _this.state.filterData.price : null;
-        let year = (typeof(_this.state.filterData.year) != 'undefined') ? _this.state.filterData.year : null;
-        //let locationFilter = (typeof(_this.state.filterData.search_radius) != 'undefined') ? true : null;
+        let year = (typeof(_this.state.filterData.year) != 'undefined') ? _this.state.filterData.year.reverse() : null;
 
         const placeholderFrom = {
             label: 'From',
@@ -409,7 +407,8 @@ export default class Filter extends React.Component {
                                                 <TouchableOpacity
                                                     activeOpacity={0.8} onPress={() => {
                                                     _this.props.navigation.navigate('FilterDefaultChoose', {
-                                                        title: <Translation str='choose'/> + ' ' + index,
+                                                        // title: <Translation str='choose'/> + ' ' + index,
+                                                        // title: <Translation str='choose'/> + {index},
                                                         checkedParams: parammsForFilter,
                                                         filterType: index,
                                                         filterData: dataFilter,

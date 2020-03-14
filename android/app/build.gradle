@@ -101,12 +101,12 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     defaultConfig {
-        applicationId "com.stylemixthemes"
+        applicationId "com.shinyviewmotors"
         minSdkVersion 23
         targetSdkVersion 28
         multiDexEnabled true
-        versionCode 11
-        versionName '1.0.5'
+        versionCode 12
+        versionName '1.0.6'
     }
 
     signingConfigs {
@@ -118,6 +118,10 @@ android {
                 keyPassword MYAPP_UPLOAD_KEY_PASSWORD
                 v2SigningEnabled false
             }
+            storeFile file('my-release-key.keystore')
+            storePassword '123456789'
+            keyAlias 'my-key-alias'
+            keyPassword '123456789'
         }
     }
     splits {
@@ -159,7 +163,6 @@ android {
 }
 
 dependencies {
-    implementation project(':react-native-fast-image')
     def multidex_version = "2.0.1"
     implementation 'androidx.multidex:multidex:$multidex_version'
     implementation project(':react-native-firebase')

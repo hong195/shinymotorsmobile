@@ -27,7 +27,6 @@ const entireScreenWidth = Dimensions.get('window').width;
 EStyleSheet.build({$rem: entireScreenWidth / 380});
 
 let _this;
-
 export default class Main extends React.Component {
 
     constructor(props) {

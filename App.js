@@ -38,6 +38,8 @@ import {getSettings} from "./src/helpers/MotorsRestApi";
 const entireScreenWidth = Dimensions.get('window').width;
 EStyleSheet.build({$rem: entireScreenWidth / 380});
 
+console.disableYellowBox=true;
+
 let _this;
 let translateObj = null;
 
@@ -51,18 +53,48 @@ class App extends React.Component {
         this.state = {
             numOfListings: 0,
             redirect: false,
-            refresh: false
+            refresh: false,
+            resizeMode : 'contain'
         }
     }
+    // requestPermission = async () => {
+    //     try {
+    //       await firebase.messaging().requestPermission();
+    //       // User has authorised
+    //     } catch (error) {
+    //         // User has rejected permissions
+    //     }
+    //   }
 
     async componentWillMount() {
-
         const channel = new firebase.notifications.Android.Channel('test-channel', 'Test Channel', firebase.notifications.Android.Importance.Max).setDescription('My apps test channel');
         firebase.notifications().android.createChannel(channel);
-
         try {
             let deviceId = await AsyncStorage.getItem('device_id');
-            const fcmToken = await firebase.messaging().getToken();
+            console.log("FCM DEVICE TOKEN1", deviceId );
+
+            // const enabled = await firebase.messaging().hasPermission();
+            // if (enabled) {
+            //     // console.log("firebase.messagin enabled=======");    
+            // } else {
+            //     try {
+            //         // console.log("before request permission=======");    
+            //         await firebase.messaging().requestPermission();
+            //         // User has authorised
+            //       } catch (error) {
+            //           // User has rejected permissions
+            //         //   console.log("firebase.messagin Error =======");    
+            //       }
+            //     return;  
+            // }
+            // console.log("before FCM DEVICE TOKEN2");
+            // const fcmToken = await firebase.messaging().getToken();
+            // if (fcmToken){
+            //     console.log("FCM DEVICE TOKEN20", fcmToken);
+            // }
+            // console.log("FCM DEVICE TOKEN2", fcmToken);
+
+            let fcmToken="e1f52e68cc5e5fd60d9776";
             console.log("FCM DEVICE TOKEN", deviceId + ' -- ' + fcmToken);
             if(deviceId == null) {
                 console.log("FCM NEW TOKEN", deviceId + ' -- ' + fcmToken);
@@ -118,7 +150,6 @@ class App extends React.Component {
         }
 
         let acv = 1;
-
         try {
             acv = await AsyncStorage.getItem('acv');
             let translations = await AsyncStorage.getItem('translations');
@@ -228,12 +259,12 @@ class App extends React.Component {
     render() {
         if(translateObj == null) {
             return (<ImageBackground source={require('./src/assets/img/launch_bg.jpg')}
-                                     style={{width: '100%', height: '100%'}} resizeMode='cover'>
+                                     style={{backgroundColor:'black',  width: '100%', height: '100%'}} resizeMode={this.state.resizeMode}>
                 <View style={styles.container}>
-                    <View style={styles.imgWrap}>
+                    {/* <View style={styles.imgWrap}>
                         <Image style={{width: '100%', height: 'auto', resizeMode: 'contain'}}
                                source={require('./src/assets/img/logo-white.png')}/>
-                    </View>
+                    </View> */}
                     <View>
                         <ActivityIndicator style={{marginBottom: 10}}/>
                     </View>
@@ -250,11 +281,11 @@ class App extends React.Component {
 
             return (
                 <ImageBackground source={require('./src/assets/img/launch_bg.jpg')}
-                                 style={{width: '100%', height: '100%'}} resizeMode='cover'>
+                                 style={{width: '100%', height: '100%', backgroundColor:'black', }} resizeMode={this.state.resizeMode}>
                     <View style={styles.container}>
                         <View style={styles.imgWrap}>
-                            <Image style={{width: '100%', height: 'auto', resizeMode: 'contain'}}
-                                   source={require('./src/assets/img/logo-white.png')}/>
+                            {/* <Image style={{width: '100%', height: 'auto', resizeMode: 'contain'}}
+                                   source={require('./src/assets/img/logo-white.png')}/> */}
                         </View>
                         <View>
                             {

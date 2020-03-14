@@ -14,7 +14,7 @@ target 'motorsReactApp' do
   pod 'Firebase/Database', '~> 6.8.1'
   pod 'Firebase/Messaging', '~> 6.8.1'
 
-  pod 'RNFastImage', :path => '../node_modules/react-native-fast-image'
+  # pod 'RNFastImage', :path => '../node_modules/react-native-fast-image'
 
   target 'motorsReactAppTests' do
     inherit! :search_paths

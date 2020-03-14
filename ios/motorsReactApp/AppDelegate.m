@@ -10,12 +10,18 @@
 @import UIKit;
 @import Firebase;
 
+@import UserNotifications;
+
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 
 #import "RNFirebaseNotifications.h"
 #import "RNFirebaseMessaging.h"
+
+@interface AppDelegate () <UNUserNotificationCenterDelegate, FIRMessagingDelegate>
+@end
+
 
 @implementation AppDelegate
 
@@ -37,6 +43,38 @@
   [FIRApp configure];
   [RNFirebaseNotifications configure];
   
+  
+  // [START set_messaging_delegate]
+  [FIRMessaging messaging].delegate = self;
+  // [END set_messaging_delegate]
+  
+  
+  // Register for remote notifications. This shows a permission dialog on first run, to
+  // show the dialog at a more appropriate time move this registration accordingly.
+  // [START register_for_notifications]
+  if ([UNUserNotificationCenter class] != nil) {
+    // iOS 10 or later
+    // For iOS 10 display notification (sent via APNS)
+    [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+    UNAuthorizationOptions authOptions = UNAuthorizationOptionAlert |
+        UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
+    [[UNUserNotificationCenter currentNotificationCenter]
+        requestAuthorizationWithOptions:authOptions
+        completionHandler:^(BOOL granted, NSError * _Nullable error) {
+          // ...
+        }];
+  } else {
+    // iOS 10 notifications aren't available; fall back to iOS 8-9 notifications.
+    UIUserNotificationType allNotificationTypes =
+    (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
+    UIUserNotificationSettings *settings =
+    [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
+    [application registerUserNotificationSettings:settings];
+  }
+
+  [application registerForRemoteNotifications];
+   // [END register_for_notifications]
+  
   return YES;
 }
 
@@ -51,6 +89,56 @@ fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHand
   [[RNFirebaseMessaging instance] didRegisterUserNotificationSettings:notificationSettings];
 }
 
+/////===============================    Leon  ====================================
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+  NSLog(@" Leon  APNs device token retrieved: %@", deviceToken);
+
+  // With swizzling disabled you must set the APNs device token here.
+   [FIRMessaging messaging].APNSToken = deviceToken;
+
+}
+
+// Handle notification messages after display notification is tapped by the user.
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+didReceiveNotificationResponse:(UNNotificationResponse *)response
+         withCompletionHandler:(void(^)(void))completionHandler {
+  NSDictionary *userInfo = response.notification.request.content.userInfo;
+//  if (userInfo[kGCMMessageIDKey]) {
+////    NSLog(@"Message ID: %@", userInfo[kGCMMessageIDKey]);
+//  }
+
+  // Print full message.
+  NSLog(@"Leon 123123123");
+
+  completionHandler();
+}
+
+
+// [START refresh_token]
+- (void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken {
+    NSLog(@"Leon  FCM registration token: %@", fcmToken);
+    // Notify about received token.
+    NSDictionary *dataDict = [NSDictionary dictionaryWithObject:fcmToken forKey:@"token"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:
+     @"FCMToken" object:nil userInfo:dataDict];
+    // TODO: If necessary send token to application server.
+    // Note: This callback is fired at each app startup and whenever a new token is generated.
+}
+// [END refresh_token]
+
+// [START ios_10_data_message]
+// Receive data messages on iOS 10+ directly from FCM (bypassing APNs) when the app is in the foreground.
+// To enable direct data messages, you can set [Messaging messaging].shouldEstablishDirectChannel to YES.
+- (void)messaging:(FIRMessaging *)messaging didReceiveMessage:(FIRMessagingRemoteMessage *)remoteMessage {
+  NSLog(@"  Leon Received data message: %@", remoteMessage.appData);
+}
+// [END ios_10_data_message]
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+  NSLog(@"Leon  Unable to register for remote notifications: %@", error);
+}
+   
+   
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {
 #if DEBUG

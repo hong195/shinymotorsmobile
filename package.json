@@ -21,6 +21,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "@react-native-community/async-storage": "^1.4.2",
+    "axios": "^0.19.2",
     "link": "^0.1.5",
     "lodash": "^4.17.11",
     "react": "16.8.3",
@@ -33,7 +34,6 @@
     "react-native-event-listeners": "^1.0.3",
     "react-native-expandable-section-flatlist": "^1.2.2",
     "react-native-extended-stylesheet": "^0.11.1",
-    "react-native-fast-image": "^7.0.2",
     "react-native-firebase": "5.5.6",
     "react-native-fs": "^2.13.3",
     "react-native-geolocation-service": "^2.0.0",
@@ -42,6 +42,7 @@
     "react-native-image-gallery": "^2.1.5",
     "react-native-image-picker": "^0.28.1",
     "react-native-image-resizer": "^1.0.1",
+    "react-native-image-zoom-viewer": "^2.2.27",
     "react-native-lightbox": "^0.8.1",
     "react-native-looped-carousel": "^0.1.13",
     "react-native-maps": "^0.24.2",

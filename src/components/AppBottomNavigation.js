@@ -34,14 +34,16 @@ export default class AppBottomNavigation extends React.Component {
     tabsClassified = [
         {
             key: 'home',
-            icon: 'home',
+            icon: 'lnr-home', //ios
+            // icon: 'home', //android
             label: '',
             barColor: '#ffffff',
             pressColor: 'rgba(0, 0, 0, 0.1)'
         },
         {
             key: 'add_car',
-            icon: 'pound-symbol-variant',
+            icon: 'lnr-plus-circle', // for ios
+            // icon: 'pound-symbol-variant', //for android
             label: '',
             barColor: '#ffffff',
 

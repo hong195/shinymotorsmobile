@@ -8,7 +8,8 @@ import {
     View,
     TouchableOpacity,
     Image,
-    Linking
+    Linking,
+    Modal,
 } from 'react-native';
 
 import AsyncStorage from '@react-native-community/async-storage';
@@ -19,6 +20,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import {actionWithFavorite, getListing} from "../helpers/MotorsRestApi"
 import GLOBALS from '../constants/globals';
 import Toast, {DURATION} from 'react-native-easy-toast'
+import ImageViewer from 'react-native-image-zoom-viewer';
 
 const entireScreenWidth = Dimensions.get('window').width;
 EStyleSheet.build({$rem: entireScreenWidth / 380});
@@ -65,10 +67,15 @@ export default class Details extends React.Component {
             iconsName: {0: 'chevron-down', 1: 'chevron-down', 2: 'chevron-down', 3: 'chevron-down'},
             isOpen: false,
             adPosition: 'bottom',
+            isShowZoomCarImg : false,
+            nCurImgIndex : 0,
 
         };
 
         vm = this;
+        this._renderCarouselItem = this._renderCarouselItem.bind(this);
+        this._onPressImage = this._onPressImage.bind(this);
+        this._onClickImg = this._onClickImg.bind(this);
     }
 
     static navigationOptions = ({navigation, navigationOptions}) => {
@@ -296,12 +303,30 @@ export default class Details extends React.Component {
     };
 
     _renderCarouselItem({item, index}) {
+        let _this = this;
         return (
-            <View style={styles.slide}>
+            <TouchableOpacity 
+                style={styles.slide}   
+                onPress={() => {
+                    this._onPressImage(index);
+                }}
+            >
                 <Image style={styles.img} source={{uri: item.url}}/>
-            </View>
+            </TouchableOpacity>
         );
     }
+
+
+
+    _onPressImage(index){
+        this.setState({nCurImgIndex : index});
+        this.setState({isShowZoomCarImg : true});
+    }
+
+    _onClickImg(){
+        this.setState({isShowZoomCarImg : false})
+    }
+    
 
     _showToast = (text, color) => {
         vm.refs['toast'].show(text, 3000);
@@ -334,6 +359,7 @@ export default class Details extends React.Component {
 
         let listing = this.state.dataListing;
         let user = (listing.hasOwnProperty('author')) ? listing.author : {};
+     
         const renderCarousel = (currentItem = this.state.currentSlide) => (
             <View style={styles.lightbox}>
                 <Carousel
@@ -471,12 +497,16 @@ export default class Details extends React.Component {
                             <MapView
                                 style={{width: '100%', height: 200, flex: 1}}
                                 initialRegion={{
-                                    latitude: Number(listing.car_lat),
-                                    longitude: Number(listing.car_lng),
-                                    latitudeDelta: 2,
-                                    longitudeDelta: 2,
+                                    // latitude: Number(listing.car_lat),
+                                    // longitude: Number(listing.car_lng),
+                                    // latitudeDelta: 2,
+                                    // longitudeDelta: 2,
+                                    latitude: 37.78825,
+                                    longitude: -122.4324,
+                                    latitudeDelta: 0.0922,
+                                    longitudeDelta: 0.0421,
                                 }}
-                                camera={{center: latLng, heading: 1, pitch: 1, zoom: 17, altitude: 80}}
+                                // camera={{center: latLng, heading: 1, pitch: 1, zoom: 17, altitude: 80}}
                             >
                                 <Marker
                                     coordinate={latLng}
@@ -497,6 +527,7 @@ export default class Details extends React.Component {
                 {
                     _this.state.adPosition == 'top' ? <AdvertisingComponent/> : <View></View>
                 }
+
                 <ScrollView
                     refreshControl={
                         <RefreshControl
@@ -602,6 +633,21 @@ export default class Details extends React.Component {
                         </View>
                     </View>
                     <Toast ref="toast" positionValue={180}/>
+
+                               <Modal 
+                        visible={this.state.isShowZoomCarImg} 
+                        transparent={false}
+                        animationType="slide"
+                        onRequestClose={() => {
+                            this.setState({isShowZoomCarImg: false});
+                            }}
+                    >
+                        <ImageViewer
+                            imageUrls={listing.gallery}
+                            index={this.state.nCurImgIndex}
+                            onClick={()=>this._onClickImg()}
+                        />
+                    </Modal>
                 </ScrollView>
                 {
                     _this.state.adPosition == 'bottom' ? <AdvertisingComponent/> : <View></View>

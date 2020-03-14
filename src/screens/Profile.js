@@ -8,7 +8,8 @@ import {
     RefreshControl,
     ActivityIndicator,
     FlatList,
-    Image, Linking
+    Image, Linking,
+    BackHandler
 } from 'react-native';
 
 import AsyncStorage from '@react-native-community/async-storage';
@@ -20,8 +21,9 @@ import AppBottomNavigation from '../components/AppBottomNavigation'
 import ListViewItem from '../components/ListViewItemComponent';
 import {loadMore, deleteACar, getLogedUser} from "../helpers/MotorsRestApi";
 import ProfileMenu from '../components/ProfileMenu';
-
+import Communications from "react-native-communications";
 import Toast, {DURATION} from 'react-native-easy-toast'
+import axios from 'axios';
 
 const entireScreenWidth = Dimensions.get('window').width;
 const entireScreenHeight = Dimensions.get('window').height;
@@ -55,13 +57,16 @@ export default class Profile extends React.Component {
             favOffset: 0,
             loadData: false,
             mainColor: '',
-            secondColor: ''
+            secondColor: '',
+            userPassword : '',
         };
 
         _this._showEditPopup = _this._showEditPopup.bind(_this);
+        this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
     }
 
     async componentWillMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
         try {
             let mc = await AsyncStorage.getItem('main_color');
             let sc = await AsyncStorage.getItem('secondary_color');
@@ -70,11 +75,11 @@ export default class Profile extends React.Component {
                 mainColor: mc,
                 secondColor: sc
             })
-            
+
             let user = await AsyncStorage.getItem('userData');
             user = JSON.parse(user);
-
-            this.setState({userData: user, userId: user.ID, userToken: user.token});
+            
+            this.setState({userData: user, userId: user.ID, user_login: user.user_login, userToken: user.token, userPassword : user.password});
         } catch (e) {
             console.log("error from AsyncStorage Profile: ", e);
         }
@@ -93,6 +98,15 @@ export default class Profile extends React.Component {
 
             })
         })
+    }
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
+    }
+    
+    handleBackButtonClick() {
+        let _this = this;
+        _this.props.navigation.navigate('Home');
+        return true;
     }
 
     static navigationOptions = ({navigation, navigationOptions}) => {
@@ -232,6 +246,26 @@ export default class Profile extends React.Component {
         _this.refs['toast'].show(text, 3000);
     }
 
+    onHandleMyPlan = () => {
+              axios.post('https://shinyviewmotors.com/pricing', {
+                params: {
+                    action : 'stm_custom_login_alt',
+                    stm_user_login : _this.state.user_login,
+                    stm_user_password: _this.state.userPassword
+                }
+              })
+              .then(function (response) {
+                let url = 'https://shinyviewmotors.com/pricing/?action=stm_custom_login_alt&stm_user_login=' + _this.state.user_login +'&stm_user_password=' + _this.state.userPassword;
+                Linking.openURL(url);
+              })
+              .catch(function (error) {
+                console.log(error);
+              })
+              .then(function () {
+                // always executed
+              });  
+    }
+
     render() {
         if (_this.state.isLoading) {
             return (
@@ -280,7 +314,15 @@ export default class Profile extends React.Component {
                                     <Text style={styles.phoneText}>{user.phone}</Text>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity activeOpacity={0.8} style={styles.messBtnWrap} onPress={() => { _this._showToast('Coming Soon')}}>
+                            {/* <TouchableOpacity activeOpacity={0.8} style={styles.messBtnWrap} onPress={() => { _this._showToast('Coming Soon')}}> */}
+
+                            <TouchableOpacity 
+                                activeOpacity={0.8} 
+                                style={styles.messBtnWrap} 
+                                onPress={() => {
+                                Communications.text(user.phone);
+                            }}>
+
                                 <View style={styles.messBtn}>
                                     <Ico icoName='bubble-dots' icoSize={18} icoColor={GLOBALS.COLOR.grayBlue}/>
                                     <Text style={styles.messText}>Send Message</Text>
@@ -288,6 +330,18 @@ export default class Profile extends React.Component {
                             </TouchableOpacity>
                         </View>
                     </View>
+
+                    <View style={styles.wrap}>
+                        <View style={styles.authorInfoWrap}>
+                            <TouchableOpacity activeOpacity={0.8} style={styles.buyPlanBtnWrap}  onPress={() => _this.onHandleMyPlan()}>
+                                <View style={styles.buyPlanBtn}>
+                                    
+                                    <Text style={styles.buyPlanText}>Buy a Plan</Text>
+                                </View>
+                           </TouchableOpacity>
+                        </View>
+                    </View>
+
                     <View style={styles.inventoryWrap}>
                         <Text style={styles.mainTitle}><Translation str='my_inventory'/></Text>
                         {
@@ -583,6 +637,18 @@ const styles = EStyleSheet.create({
         paddingRight: '20rem',
     },
 
+    buyPlanWrap: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: '20rem',
+        marginBottom: '10rem',
+        paddingLeft: '20rem',
+        paddingRight: '20rem',
+    },
+
+
     callBtnWrap: {
         width: '45%',
     },
@@ -605,6 +671,10 @@ const styles = EStyleSheet.create({
     messBtnWrap: {
         width: '45%',
     },
+    buyPlanBtnWrap: {
+        width: '100%',
+        // backgroundColor : 'red'
+    },
 
     messBtn: {
         flexDirection: 'row',
@@ -614,6 +684,23 @@ const styles = EStyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: GLOBALS.COLOR.white,
+        borderRadius: 50,
+        shadowColor: '#000',
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.3,
+        shadowRadius: 3,
+        elevation: 2,
+    },
+
+    buyPlanBtn: {
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        height: '55rem',
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        
+        backgroundColor: '#D4AF37',
         borderRadius: 50,
         shadowColor: '#000',
         shadowOffset: {width: 0, height: 2},
@@ -632,6 +719,13 @@ const styles = EStyleSheet.create({
         fontSize: '13rem',
         color: GLOBALS.COLOR.grayBlue,
         marginLeft: 5
+    },
+
+    buyPlanText: {
+        fontSize: '15rem',
+        color: GLOBALS.COLOR.white,
+        fontWeight: '700',
+        // marginLeft: '10rem'
     },
 
     inventoryWrap: {
