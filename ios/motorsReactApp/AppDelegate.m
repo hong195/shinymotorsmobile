@@ -108,7 +108,6 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 //  }
 
   // Print full message.
-  NSLog(@"Leon 123123123");
 
   completionHandler();
 }
@@ -123,6 +122,9 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
      @"FCMToken" object:nil userInfo:dataDict];
     // TODO: If necessary send token to application server.
     // Note: This callback is fired at each app startup and whenever a new token is generated.
+  
+    NSLog(@"  Leon didReceiveRegistrationToken: %@", fcmToken);
+  
 }
 // [END refresh_token]
 

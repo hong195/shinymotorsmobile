@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native'
+import {View,Text} from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage';
 import BottomNavigation, {IconTab} from 'react-native-material-bottom-navigation';
 import GLOBALS from "../constants/globals";
@@ -7,6 +7,10 @@ import PropTypes from 'prop-types';
 import CustomIcon from "../config/CustomIcons.js";
 import { createAppContainer, createStackNavigator } from 'react-navigation';
 import {EventRegister} from "react-native-event-listeners";
+
+
+import FontAwesome5Icon from "react-native-vector-icons/FontAwesome5";
+import IonicIcon from "react-native-vector-icons/Ionicons";
 
 let _this;
 
@@ -34,8 +38,8 @@ export default class AppBottomNavigation extends React.Component {
     tabsClassified = [
         {
             key: 'home',
-            icon: 'lnr-home', //ios
-            // icon: 'home', //android
+            // icon: 'lnr-home', //ios
+            icon: 'home', //android
             label: '',
             barColor: '#ffffff',
             pressColor: 'rgba(0, 0, 0, 0.1)'
@@ -46,7 +50,6 @@ export default class AppBottomNavigation extends React.Component {
             // icon: 'pound-symbol-variant', //for android
             label: '',
             barColor: '#ffffff',
-
             pressColor: 'rgba(0, 0, 0, 0.1)'
         },
         {
@@ -81,9 +84,21 @@ export default class AppBottomNavigation extends React.Component {
         }
     ];
 
-    renderIcon = icon => ({isActive}) => (
-        <CustomIcon name={icon} size={25} color={_this.state.active == icon ? _this.state.secondColor : GLOBALS.COLOR.gray88} />
-    )
+    renderIcon = icon => ({isActive}) => {
+        // 
+        if (icon == "lnr-plus-circle"){
+            return(
+                <FontAwesome5Icon name="pound-sign" size={25} color={_this.state.active == icon ? _this.state.secondColor : GLOBALS.COLOR.gray88} />        
+            )
+        }
+        else if (icon =="home"){
+            return <IonicIcon name="ios-home" size={27} color={_this.state.active == icon ? _this.state.secondColor : GLOBALS.COLOR.gray88} />        
+            // <FontAwesome5Icon name="home" size={25} color={_this.state.active == icon ? _this.state.secondColor : GLOBALS.COLOR.gray88} />        
+        }
+        else{
+            return <CustomIcon name={icon} size={25} color={_this.state.active == icon ? _this.state.secondColor : GLOBALS.COLOR.gray88} />
+        }
+    }
 
     renderTab = ({tab, isActive}) => (
         <IconTab

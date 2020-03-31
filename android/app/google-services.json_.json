@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1026288201667",
+    "firebase_url": "https://shiny-view-motors.firebaseio.com",
+    "project_id": "shiny-view-motors",
+    "storage_bucket": "shiny-view-motors.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1026288201667:android:7c7e440c64424bac0d9776",
+        "android_client_info": {
+          "package_name": "com.shinyviewmotors"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1026288201667-b4qa75b95paeltbcm0nhmqu5kddr1cg1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLPRi4UaKgS4jDFl-KO9R7XJfOvrOBZsY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1026288201667-b4qa75b95paeltbcm0nhmqu5kddr1cg1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1026288201667-mbhf99fsgksj9d6u8ofv6s7h67jgt14i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.shinyviewmotors"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

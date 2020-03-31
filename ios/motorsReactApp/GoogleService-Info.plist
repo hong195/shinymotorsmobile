@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1026288201667-t9hkjd0jugn1u08s921gebcuuprttlqq.apps.googleusercontent.com</string>
+	<string>760467207802-csqn4ie3b3dvundi8j9q9e6arlg5colf.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1026288201667-t9hkjd0jugn1u08s921gebcuuprttlqq</string>
+	<string>com.googleusercontent.apps.760467207802-csqn4ie3b3dvundi8j9q9e6arlg5colf</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCCdlChx1-bfS0UIVm_AyFP1GLFISkMKrI</string>
+	<string>AIzaSyBPfZd1GSRwDWhhbhsi67-2_iW2fJmoJUY</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1026288201667</string>
+	<string>760467207802</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.svmshinyviewmotors</string>
 	<key>PROJECT_ID</key>
-	<string>shiny-view-motors</string>
+	<string>fir-chat-62c42</string>
 	<key>STORAGE_BUCKET</key>
-	<string>shiny-view-motors.appspot.com</string>
+	<string>fir-chat-62c42.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1026288201667:ios:e1f52e68cc5e5fd60d9776</string>
+	<string>1:760467207802:ios:1b8bedc970cb5351b82dc3</string>
 	<key>DATABASE_URL</key>
-	<string>https://shiny-view-motors.firebaseio.com</string>
+	<string>https://fir-chat-62c42.firebaseio.com</string>
 </dict>
 </plist>

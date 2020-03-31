@@ -16,10 +16,10 @@ target 'motorsReactApp' do
 
   # pod 'RNFastImage', :path => '../node_modules/react-native-fast-image'
 
-  target 'motorsReactAppTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  # target 'motorsReactAppTests' do
+  #   inherit! :search_paths
+  #   # Pods for testing
+  # end
 
 end
 

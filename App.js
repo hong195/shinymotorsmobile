@@ -57,47 +57,22 @@ class App extends React.Component {
             resizeMode : 'contain'
         }
     }
-    // requestPermission = async () => {
-    //     try {
-    //       await firebase.messaging().requestPermission();
-    //       // User has authorised
-    //     } catch (error) {
-    //         // User has rejected permissions
-    //     }
-    //   }
 
     async componentWillMount() {
         const channel = new firebase.notifications.Android.Channel('test-channel', 'Test Channel', firebase.notifications.Android.Importance.Max).setDescription('My apps test channel');
         firebase.notifications().android.createChannel(channel);
         try {
             let deviceId = await AsyncStorage.getItem('device_id');
-            console.log("FCM DEVICE TOKEN1", deviceId );
-
-            // const enabled = await firebase.messaging().hasPermission();
-            // if (enabled) {
-            //     // console.log("firebase.messagin enabled=======");    
-            // } else {
-            //     try {
-            //         // console.log("before request permission=======");    
-            //         await firebase.messaging().requestPermission();
-            //         // User has authorised
-            //       } catch (error) {
-            //           // User has rejected permissions
-            //         //   console.log("firebase.messagin Error =======");    
-            //       }
-            //     return;  
-            // }
-            // console.log("before FCM DEVICE TOKEN2");
-            // const fcmToken = await firebase.messaging().getToken();
-            // if (fcmToken){
-            //     console.log("FCM DEVICE TOKEN20", fcmToken);
-            // }
-            // console.log("FCM DEVICE TOKEN2", fcmToken);
-
-            let fcmToken="e1f52e68cc5e5fd60d9776";
-            console.log("FCM DEVICE TOKEN", deviceId + ' -- ' + fcmToken);
+            // console.log("FCM DEVICE TOKEN1", deviceId );
+     
+            const fcmToken = await firebase.messaging().getToken();
+            if (fcmToken){
+                // console.log("FCM DEVICE TOKEN20", fcmToken);
+            }
+     
+            // console.log("FCM DEVICE TOKEN", deviceId + ' -- ' + fcmToken);
             if(deviceId == null) {
-                console.log("FCM NEW TOKEN", deviceId + ' -- ' + fcmToken);
+                // console.log("FCM NEW TOKEN", deviceId + ' -- ' + fcmToken);
                 firebase.messaging().hasPermission()
                     .then(enabled => {
                         if (enabled) {

@@ -5,16 +5,12 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
 		00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
-		02CE697726EA4DE88935EC50 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C059D4787C8540F49CD8096B /* Entypo.ttf */; };
-		0C4E3CAE7FD04AE48E4D04C4 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B50E3BA03FDA42E6B31D7175 /* AntDesign.ttf */; };
-		0FEAFCE6DAE74B41B7DFD6F5 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B012823C7BEB42989DD8EC77 /* Octicons.ttf */; };
 		11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
@@ -24,38 +20,41 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		14F1EA89CBA847B48426F39E /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E39FF024720A4F1BA019CABD /* Zocial.ttf */; };
 		1B955D3EAFD4471EAB6EA8C7 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D45F390975244DBAA1BE2AB /* libAirMaps.a */; };
-		1D5BE0A1567A47459C5B7577 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11566D553F9D4F87B58EB9A8 /* MaterialIcons.ttf */; };
 		1E6E1E5B1AAF4AF8A579F988 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86085856D032450B900FF4AB /* libRNFirebase.a */; };
 		21A536BBF213B34E7356ED10 /* libPods-motorsReactApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C1B77DFC0B87BF792E685B /* libPods-motorsReactApp.a */; };
-		22BF48A0F84F4D17A1B8686F /* motors-app-icons.svg in Resources */ = {isa = PBXBuildFile; fileRef = 265518B6729E40E594DCB955 /* motors-app-icons.svg */; };
-		27A91C6D643D42D09F6B42E4 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8FAB8FBFAE44BF8A29BB41F /* SimpleLineIcons.ttf */; };
 		32FA6DB12323A82F0040D8D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32FA6DB02323A82F0040D8D7 /* GoogleService-Info.plist */; };
-		4891347EA83E4B548B9452F7 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF010FDE45954D89A306DEC9 /* Foundation.ttf */; };
+		4246569D24247A7D00C5FB5E /* motors-app-icon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C0E40C1A2814F81A0660054 /* motors-app-icon.ttf */; };
+		4246569E24247A7D00C5FB5E /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B50E3BA03FDA42E6B31D7175 /* AntDesign.ttf */; };
+		4246569F24247A7D00C5FB5E /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C059D4787C8540F49CD8096B /* Entypo.ttf */; };
+		424656A024247A7D00C5FB5E /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 693E78DF8EF84DE88827B30F /* EvilIcons.ttf */; };
+		424656A124247A7D00C5FB5E /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF5D33A73A5F4D518B2DAF84 /* Feather.ttf */; };
+		424656A224247A7D00C5FB5E /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 695EF2C35C4E40FCBF2840E8 /* FontAwesome.ttf */; };
+		424656A324247A7D00C5FB5E /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5B3100BA7E84C9DACA3FF93 /* FontAwesome5_Brands.ttf */; };
+		424656A424247A7D00C5FB5E /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91835DD770B041E8866108FD /* FontAwesome5_Regular.ttf */; };
+		424656A524247A7D00C5FB5E /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D392041A4D048509319D7ED /* FontAwesome5_Solid.ttf */; };
+		424656A624247A7D00C5FB5E /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF010FDE45954D89A306DEC9 /* Foundation.ttf */; };
+		424656A724247A7D00C5FB5E /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBEC8B07505648A38A963D75 /* Ionicons.ttf */; };
+		424656A824247A7D00C5FB5E /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64372A1156A44386AF696A61 /* MaterialCommunityIcons.ttf */; };
+		424656A924247A7D00C5FB5E /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11566D553F9D4F87B58EB9A8 /* MaterialIcons.ttf */; };
+		424656AA24247A7D00C5FB5E /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B012823C7BEB42989DD8EC77 /* Octicons.ttf */; };
+		424656AB24247A7D00C5FB5E /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8FAB8FBFAE44BF8A29BB41F /* SimpleLineIcons.ttf */; };
+		424656AC24247A7D00C5FB5E /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E39FF024720A4F1BA019CABD /* Zocial.ttf */; };
+		424656AD24247A7D00C5FB5E /* motors-app-icons.svg in Resources */ = {isa = PBXBuildFile; fileRef = 265518B6729E40E594DCB955 /* motors-app-icons.svg */; };
+		424656AE24247A7D00C5FB5E /* motors-app-icon-old.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08A094CD88234ADBB99F144A /* motors-app-icon-old.ttf */; };
+		424656AF24247A7D00C5FB5E /* motors-app-icons.woff in Resources */ = {isa = PBXBuildFile; fileRef = 5A1D96B21B17421996F47B6D /* motors-app-icons.woff */; };
 		4AA91D10C25043B6AC7493E8 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7635050E689C4AE2B54AB856 /* libRNFS.a */; };
 		4E58B3E17AC042149CCF233A /* libRCTImageResizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D94F2C038BCE450DA0CBBAAE /* libRCTImageResizer.a */; };
-		6C67D31A47274084B1437253 /* motors-app-icons.woff in Resources */ = {isa = PBXBuildFile; fileRef = 5A1D96B21B17421996F47B6D /* motors-app-icons.woff */; };
-		6E16BBC23EED44FB84B16A6B /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBEC8B07505648A38A963D75 /* Ionicons.ttf */; };
-		72529A51087645628E597CF9 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 695EF2C35C4E40FCBF2840E8 /* FontAwesome.ttf */; };
-		7464CCC220C249B898D7B262 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D392041A4D048509319D7ED /* FontAwesome5_Solid.ttf */; };
-		7B1C01AB05D84C0BBD1BE940 /* motors-app-icon-old.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08A094CD88234ADBB99F144A /* motors-app-icon-old.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		859D746F88364CE796C6B76C /* motors-app-icon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C0E40C1A2814F81A0660054 /* motors-app-icon.ttf */; };
-		96374498DCC64CE6971FB5B0 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91835DD770B041E8866108FD /* FontAwesome5_Regular.ttf */; };
 		9B0C1942E0A44F3A8A24B41E /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 436E10A6060A428998695616 /* libReactNativeNavigation.a */; };
-		A0AA9A9E30334CCC84BCE3C7 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64372A1156A44386AF696A61 /* MaterialCommunityIcons.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B840CAFB23C540B8BE6BBDAE /* ReactNativeNavigationTests.xctest in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1BDD1920DF422E9512D324 /* ReactNativeNavigationTests.xctest */; };
-		BA2D391DA94D47DEA85E8710 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 693E78DF8EF84DE88827B30F /* EvilIcons.ttf */; };
-		C34C3309AF854C03910E05C7 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF5D33A73A5F4D518B2DAF84 /* Feather.ttf */; };
 		CAD1CCDA1B744D988115EC3A /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F201F3022DA3483C86F1FD5D /* libRNGestureHandler.a */; };
 		D3C8200912C0427296421A40 /* libRNCAsyncStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B568341E6C409E9E9B457B /* libRNCAsyncStorage.a */; };
 		DF436AE97698419C8886ECA6 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64250CA880BD464F872FF179 /* libRNImagePicker.a */; };
 		DFCF179044114EE8BAD8F4B3 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 697EAD4C1C20476C90F8788E /* libRNVectorIcons.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		FBA13578E7F245F393C80181 /* libRNReanimated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFCC0DD91854BFDB92716DE /* libRNReanimated.a */; };
-		FEEEBC55D56E438EBABEA034 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5B3100BA7E84C9DACA3FF93 /* FontAwesome5_Brands.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1407,28 +1406,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4246569D24247A7D00C5FB5E /* motors-app-icon.ttf in Resources */,
+				4246569E24247A7D00C5FB5E /* AntDesign.ttf in Resources */,
+				4246569F24247A7D00C5FB5E /* Entypo.ttf in Resources */,
+				424656A024247A7D00C5FB5E /* EvilIcons.ttf in Resources */,
+				424656A124247A7D00C5FB5E /* Feather.ttf in Resources */,
+				424656A224247A7D00C5FB5E /* FontAwesome.ttf in Resources */,
+				424656A324247A7D00C5FB5E /* FontAwesome5_Brands.ttf in Resources */,
+				424656A424247A7D00C5FB5E /* FontAwesome5_Regular.ttf in Resources */,
+				424656A524247A7D00C5FB5E /* FontAwesome5_Solid.ttf in Resources */,
+				424656A624247A7D00C5FB5E /* Foundation.ttf in Resources */,
+				424656A724247A7D00C5FB5E /* Ionicons.ttf in Resources */,
+				424656A824247A7D00C5FB5E /* MaterialCommunityIcons.ttf in Resources */,
+				424656A924247A7D00C5FB5E /* MaterialIcons.ttf in Resources */,
+				424656AA24247A7D00C5FB5E /* Octicons.ttf in Resources */,
+				424656AB24247A7D00C5FB5E /* SimpleLineIcons.ttf in Resources */,
+				424656AC24247A7D00C5FB5E /* Zocial.ttf in Resources */,
+				424656AD24247A7D00C5FB5E /* motors-app-icons.svg in Resources */,
+				424656AE24247A7D00C5FB5E /* motors-app-icon-old.ttf in Resources */,
+				424656AF24247A7D00C5FB5E /* motors-app-icons.woff in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				859D746F88364CE796C6B76C /* motors-app-icon.ttf in Resources */,
-				0C4E3CAE7FD04AE48E4D04C4 /* AntDesign.ttf in Resources */,
-				02CE697726EA4DE88935EC50 /* Entypo.ttf in Resources */,
-				BA2D391DA94D47DEA85E8710 /* EvilIcons.ttf in Resources */,
-				C34C3309AF854C03910E05C7 /* Feather.ttf in Resources */,
-				72529A51087645628E597CF9 /* FontAwesome.ttf in Resources */,
-				FEEEBC55D56E438EBABEA034 /* FontAwesome5_Brands.ttf in Resources */,
-				96374498DCC64CE6971FB5B0 /* FontAwesome5_Regular.ttf in Resources */,
-				7464CCC220C249B898D7B262 /* FontAwesome5_Solid.ttf in Resources */,
 				32FA6DB12323A82F0040D8D7 /* GoogleService-Info.plist in Resources */,
-				4891347EA83E4B548B9452F7 /* Foundation.ttf in Resources */,
-				6E16BBC23EED44FB84B16A6B /* Ionicons.ttf in Resources */,
-				A0AA9A9E30334CCC84BCE3C7 /* MaterialCommunityIcons.ttf in Resources */,
-				1D5BE0A1567A47459C5B7577 /* MaterialIcons.ttf in Resources */,
-				0FEAFCE6DAE74B41B7DFD6F5 /* Octicons.ttf in Resources */,
-				27A91C6D643D42D09F6B42E4 /* SimpleLineIcons.ttf in Resources */,
-				14F1EA89CBA847B48426F39E /* Zocial.ttf in Resources */,
-				22BF48A0F84F4D17A1B8686F /* motors-app-icons.svg in Resources */,
-				7B1C01AB05D84C0BBD1BE940 /* motors-app-icon-old.ttf in Resources */,
-				6C67D31A47274084B1437253 /* motors-app-icons.woff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1509,7 +1508,7 @@
 				CODE_SIGN_ENTITLEMENTS = "motorsReactApp/Shiny View Motors.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0.5;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = YC6993VU73;
 				ENABLE_BITCODE = NO;
@@ -1547,7 +1546,7 @@
 				);
 				INFOPLIST_FILE = motorsReactApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1572,7 +1571,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0.5;
 				DEVELOPMENT_TEAM = YC6993VU73;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1609,7 +1608,7 @@
 				);
 				INFOPLIST_FILE = motorsReactApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
