@@ -22,7 +22,7 @@
     "@babel/polyfill": "^7.4.4",
     "@react-native-community/async-storage": "^1.4.2",
     "link": "^0.1.5",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "react": "16.8.3",
     "react-native": "0.59.8",
     "react-native-cli": "^2.0.1",
